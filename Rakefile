@@ -9,7 +9,7 @@ task :default do
     sh "unzip #{pref}.zip"
     sh "rm #{pref}.zip"
     sh "rm #{pref}.geojsons" if File.exist?("#{pref}.geojsons")
-    sh "ogr2ogr -f GeoJSONSeq #{pref}.geojsons h27ka#{pref}.shp"
+    sh "ogr2ogr -f GeoJSONSeq -lco RS=YES #{pref}.geojsons h27ka#{pref}.shp"
     sh "rm h27ka#{pref}.*"
   }
 end
